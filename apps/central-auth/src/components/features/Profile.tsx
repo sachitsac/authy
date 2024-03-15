@@ -1,21 +1,19 @@
 "use client";
+import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import Profile from "./Profile";
 
-export default function User() {
+export default function Profile() {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
-  if (user) {
-    return (
+  return (
+    user && (
       <div>
-        Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
-        <Profile />
+        <Image src={user.picture} alt={user.name} width={30} height={30} />
+        <h2>Sachit</h2>
       </div>
-    );
-  }
-
-  return <a href="/api/auth/login">Login</a>;
+    )
+  );
 }
