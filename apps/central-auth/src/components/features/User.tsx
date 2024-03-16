@@ -8,7 +8,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 export default function User() {
   const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Button>Checking...</Button>;
   if (error) return <div>{error.message}</div>;
 
   if (user) {
@@ -23,7 +23,7 @@ export default function User() {
   return (
     <Button asChild>
       <Link href="/api/auth/login">
-        Login <ArrowRightIcon className="ml-2" />
+        Lets get started <ArrowRightIcon className="ml-2" />
       </Link>
     </Button>
   );
