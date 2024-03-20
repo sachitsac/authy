@@ -8,6 +8,6 @@
   top: 0;
   left: 0;
   overflow-x: hidden;
-  padding-top: var(--gutter-size);
+  padding-top: calc(var(--gutter-size) / 2);
   text-align: center;
 }
