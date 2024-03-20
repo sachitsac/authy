@@ -1,0 +1,5 @@
+.breadCrumb {
+  margin-left: calc(var(--gutter-size) * 5);
+  padding: calc(var(--gutter-size) * 1) calc(var(--gutter-size) * 3)
+    calc(var(--gutter-size) * 1.5) calc(var(--gutter-size) * 3);
+}

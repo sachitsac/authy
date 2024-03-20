@@ -1,9 +1,8 @@
 "use client";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import Profile from "./Profile";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon, DoubleArrowRightIcon } from "@radix-ui/react-icons";
 
 export default function User() {
   const { user, error, isLoading } = useUser();
@@ -14,8 +13,12 @@ export default function User() {
   if (user) {
     return (
       <div>
-        Welcome Sachit! <a href="/api/auth/logout">Logout</a>
-        <Profile />
+        <p className="mb-5">Welcome {user.name}!</p>
+        <Button asChild>
+          <Link href="/dashboard">
+            Go to Dashboard <DoubleArrowRightIcon className="ml-2" />
+          </Link>
+        </Button>
       </div>
     );
   }
