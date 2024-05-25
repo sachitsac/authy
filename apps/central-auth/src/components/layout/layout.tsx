@@ -10,7 +10,7 @@ export const Layout = ({ children }: PropsWithChildren): ReactElement => {
     <>
       <div className="layout">
         <Sidebar />
-        <SearchBar />
+        {/* <SearchBar /> */}
         {/* <BreadCrumbList /> */}
         <AppContainer>{children}</AppContainer>
       </div>
