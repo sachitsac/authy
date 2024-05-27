@@ -64,3 +64,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+pre {
+  @apply rounded m-4 text-white overflow-x-scroll;
+}
+
+:not(pre) > code {
+  @apply bg-gray-900 rounded p-[2px] text-white;
+}

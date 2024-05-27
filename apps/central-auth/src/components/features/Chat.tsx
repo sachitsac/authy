@@ -1,6 +1,34 @@
 "use client";
 
 import { useChat } from "ai/react";
+import Markdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import tomorrow from "react-syntax-highlighter/dist/esm/styles/prism/tomorrow";
+
+const DisplayMarkdown = ({ content }: { content: string }) => (
+  <Markdown
+    children={content}
+    components={{
+      code(props) {
+        const { children, className, node, ...rest } = props;
+        const match = /language-(\w+)/.exec(className || "");
+        return match ? (
+          <SyntaxHighlighter
+            {...rest}
+            PreTag="div"
+            children={String(children).replace(/\n$/, "")}
+            language={match[1]}
+            style={tomorrow}
+          />
+        ) : (
+          <code {...rest} className={className}>
+            {children}
+          </code>
+        );
+      },
+    }}
+  />
+);
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -18,7 +46,7 @@ export default function Chat() {
                   >
                     <div className="text-xs">Bot</div>
                     <div className="bg-slate-200 rounded-xl rounded-tl-none px-3 py-1.5 text-sm">
-                      {m.content}
+                      <DisplayMarkdown content={m.content} />
                     </div>
                   </div>
                 </>
@@ -28,7 +56,7 @@ export default function Chat() {
                   <div key={m.id} className="w-3/4 space-y-0.5 self-end">
                     <div className="text-xs text-right">You</div>
                     <div className="bg-slate-800 text-slate-50 rounded-xl rounded-tr-none px-3 py-1.5 text-sm">
-                      {m.content}
+                      <DisplayMarkdown content={m.content} />
                     </div>
                   </div>
                 </>
