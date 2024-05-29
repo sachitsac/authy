@@ -45,7 +45,7 @@ export default function Chat() {
                     className="w-3/4 space-y-0.5 has-i.stream: empty f:hidden"
                   >
                     <div className="text-xs">Bot</div>
-                    <div className="bg-slate-200 rounded-xl rounded-tl-none px-3 py-1.5 text-sm">
+                    <div className="bg-slate-200 rounded-xl rounded-tl-none px-5 py-5 text-sm">
                       <DisplayMarkdown content={m.content} />
                     </div>
                   </div>
@@ -96,12 +96,3 @@ export default function Chat() {
     </div>
   );
 }
-
-/**
- * <div className="w-3/4 space-y-0.5 has-[.stream: empty]:hidden">
-<div class="text-xs">Bot</div>
-<div class="bg-slate-200 rounded-xl rounded-fl-none px-3 py-1.5 text-sm">
-Hello, how can I help?
-<div>
-<div>
- */
