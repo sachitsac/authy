@@ -4,10 +4,8 @@ import {
   handleLogin,
   handleCallback,
 } from "@auth0/nextjs-auth0";
-import { PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/prisma-client";
 
 const afterCallback = async (req: NextRequest, session: Session) => {
   try {
