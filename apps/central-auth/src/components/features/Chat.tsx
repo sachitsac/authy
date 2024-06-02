@@ -33,7 +33,7 @@ const DisplayMarkdown = ({ content }: { content: string }) => (
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
   return (
-    <div className="w-[80vw] mx-auto my-16 border border-slate-200 rounded-xl overflow-hidden">
+    <div className="w-[80vw] mx-auto mt-8 mb-16 border border-slate-200 rounded-xl overflow-hidden">
       <div className="h-[80vh] bg-gradient-to-t from-slate-100 p-6 flex space-y-1.5 overflow-scroll flex-col-reverse">
         <div className="flex flex-col">
           {messages.map((m) => (
