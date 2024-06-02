@@ -5,7 +5,7 @@ import {
   handleCallback,
 } from "@auth0/nextjs-auth0";
 import { NextRequest } from "next/server";
-import { prisma } from "@/lib/prisma-client";
+import { prisma } from "@authy/data-persistance";
 
 const afterCallback = async (req: NextRequest, session: Session) => {
   try {
